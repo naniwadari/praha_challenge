@@ -1,15 +1,15 @@
 @startuml
   title DBモデリング1
-  entity "menus" {
-    + id
+  entity "メニュー" {
+    メニューID
     ==
     名前
     値段
-    種別
+    種類
   }
 
-  entity "orders" {
-    +id
+  entity "注文" {
+    注文ID
     ==
     注文者名
     注文者電話番号
@@ -18,13 +18,15 @@
     注文日時
   }
 
-  entity "order_details" {
-    注文id[FK(orders,id)]
-    メニューid[FK(menus,id)]
+  entity "注文詳細" {
+    注文ID[FK]
+    メニューID[FK]
+    ==
     わさび有無
     注文個数
+    小計額
   }
 
-  orders --|{ order_details
-  order_details ||--|| menus
+  注文 --|{ 注文詳細
+  注文詳細 ||--|| メニュー
 @enduml
