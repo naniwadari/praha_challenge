@@ -1,0 +1,30 @@
+@startuml
+  title DBモデリング1
+  entity "menus" {
+    + id
+    ==
+    名前
+    値段
+    種別
+  }
+
+  entity "orders" {
+    +id
+    ==
+    注文者名
+    注文者電話番号
+    合計額
+    支払い済か？
+    注文日時
+  }
+
+  entity "order_details" {
+    注文id[FK(orders,id)]
+    メニューid[FK(menus,id)]
+    わさび有無
+    注文個数
+  }
+
+  orders --|{ order_details
+  order_details ||--|| menus
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+  title 課題 2
+  entity "menus" {
+    +id
+    ==
+    名前
+    値段
+    種別(セット or 個別)
+  }
+
+  entity "orders" {
+    +id
+    ==
+    注文者名
+    注文者電話番号
+    合計額
+    支払い済か？
+    注文日時
+  }
+
+  entity "order_details" {
+    注文 id[FK(orders,id)]
+    メニュー id[FK(menus,id)]
+    ==
+    シャリ種類
+    わさび有無
+    注文個数
+  }
+
+  orders --|{ order_details
+  order_details ||--|| menus
+@enduml
