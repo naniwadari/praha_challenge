@@ -1,0 +1,22 @@
+@startuml
+  entity "Post" {
+    ID[PK]
+    ==
+    text
+  }
+
+  entity "PostTag" {
+    post_id[FPK]
+    tag_id[FPK]
+    ==
+  }
+
+  entity "Tag" {
+    ID[PK]
+    ==
+    name
+  }
+
+  Post ||--|{ PostTag
+  Tag ||--|{ PostTag
+@enduml
