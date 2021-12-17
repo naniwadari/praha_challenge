@@ -1,0 +1,38 @@
+@startuml
+entity "Manga" {
+  id[PK]
+  ==
+  name
+}
+
+entity "Novel" {
+  id[PK]
+  ==
+  name
+}
+
+entity "Comment" {
+  id[PK]
+  ==
+  text
+}
+
+entity "MangaComment" {
+  id[PK]
+  ==
+  manga_id[FK]
+  comment_id[FK]
+}
+
+entity "NovelComment" {
+  id[PK]
+  ==
+  novel_id[FK]
+  comment_id[FK]
+}
+
+Manga ||--o{ MangaComment
+Novel ||--o{ NovelComment
+MangaComment ||--|| Comment
+NovelComment ||--|| Comment
+@enduml
