@@ -1,0 +1,15 @@
+@startuml
+entity "Message" {
+  id[PK]
+  ==
+  text
+}
+
+entity "MessageTree" {
+  ancestor
+  descendant
+  depth
+}
+
+Message ||--o{ MessageTree
+@enduml
