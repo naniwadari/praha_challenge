@@ -1,0 +1,18 @@
+@startuml
+entity "Consumer" {
+  id
+  ==
+  name
+  gender
+  tel
+  birthday
+}
+
+entity "CancelConsumer" {
+  id
+  ==
+  gender
+  birthday
+  canceld_at
+}
+@enduml
