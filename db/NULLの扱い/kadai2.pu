@@ -1,0 +1,21 @@
+@startuml
+entity "Assignee" {
+  id[PK]
+  ==
+  name
+}
+
+entity "Issue" {
+  id[PK]
+  ==
+  text
+}
+
+entity "IssueAssignee" {
+  issue_id
+  assignee_id
+}
+
+Issue ||--o{ IssueAssignee
+Assignee ||--o{ IssueAssignee
+@enduml
