@@ -1,0 +1,36 @@
+@startuml
+entity "Customer" {
+  id[PK]
+  ==
+  tel
+}
+
+entity "Opportunity" {
+  id
+  ==
+  customer_id[FK]
+  is_close
+  closed_at
+  canceld_at
+}
+
+entity "Call" {
+  id
+  ==
+  opportunity_id[FK]
+  contact_at
+  note
+}
+
+entity "Met" {
+  id
+  ==
+  opportunity_id[FK]
+  contact_at
+  note
+}
+
+Customer ||--o{ Opportunity
+Opportunity ||--o{ Call
+Opportunity ||--o{ Met
+@enduml
