@@ -1,0 +1,14 @@
+@startuml
+entity "Student" {
+  id[PK]
+  ==
+  name
+  status[FK]
+}
+
+entity "StudentStatus" {
+  status
+}
+
+Student ||--|| StudentStatus
+@enduml
