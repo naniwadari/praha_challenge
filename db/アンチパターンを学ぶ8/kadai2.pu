@@ -1,0 +1,8 @@
+@startuml
+entity "Product" {
+  id
+  ==
+  productCode
+  name
+}
+@enduml
