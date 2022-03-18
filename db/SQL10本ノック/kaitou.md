@@ -6,7 +6,7 @@ SQL
 SELECT Customers.CustomerID, count(Customers.CustomerID) as orderCount FROM [Orders]
 join Customers on Orders.CustomerID = Customers.CustomerID
 group by Customers.CustomerID
-having orderCount > 2
+having orderCount >= 3
 order by orderCount DESC
 ;
 ```
@@ -143,3 +143,43 @@ select Orders.* from Orders
 left outer join Employees on Employees.EmployeeID = Orders.EmployeeID
 ;
 ```
+
+# 課題 2
+
+## WHERE と HAVING の違い
+
+実行順序の違い
+WHERE 句は GROUPBY の前に実行されるので、それ以降では適用できない
+HAVING 句は GROUPBY の後に実行されるので、それ以降でも適用できる
+
+SQL の実行順序
+
+```
+FROM → WHERE → GROUPBY → HAVING → SELECT → ORDERBY
+```
+
+## データ構造言語の違い
+
+### DDL
+
+Data Definition Language = データ定義言語
+CREATE, DROP, ALTER などデータベースの生成や削除変更を行うコマンド
+
+### DML
+
+Data Manipulation Language = データ操作言語
+SELECT、INSERT、UPDATE、DELETE などテーブルに対するデータの取得などを行うコマンド
+
+### DCL
+
+Data Control Language = データ制御言語
+GRANT, REVOKE など DML や DDL の利用に関する許可や禁止を設定するコマンド
+
+### TCL
+
+Transaction Control Language = トランザクション制御言語
+BEGIN, COMMIT, ROLLBACK などトランザクションの制御を行うコマンド
+
+# 課題 3
+
+-
