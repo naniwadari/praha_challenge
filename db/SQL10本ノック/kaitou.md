@@ -2,9 +2,10 @@
 
 SQL
 
-```
+```sql
 SELECT Customers.CustomerID, count(Customers.CustomerID) as orderCount FROM [Orders]
 join Customers on Orders.CustomerID = Customers.CustomerID
+where strftime('%Y', Orders.OrderDate) = '1996'
 group by Customers.CustomerID
 having orderCount >= 3
 order by orderCount DESC
@@ -15,7 +16,7 @@ order by orderCount DESC
 
 ## 最大の注文詳細
 
-```
+```sql
 SELECT Orders.OrderID, count(OrderDetails.OrderID) as orderDetailCount FROM [OrderDetails]
 join Orders on Orders.OrderID = OrderDetails.OrderID
 group by OrderDetails.OrderID
@@ -30,7 +31,6 @@ LIMIT 1
 SELECT ShipperID, count(ShipperID) as shipperCount FROM [Orders]
 group by ShipperID
 order by shipperCount DESC
-LIMIT 1
 ;
 ```
 
@@ -182,4 +182,16 @@ BEGIN, COMMIT, ROLLBACK などトランザクションの制御を行うコマ�
 
 # 課題 3
 
--
+クイズを 3 つ作成する
+
+## クイズ１
+
+NULL が含まれるカラムで COUNT や AVG を取得すると NULL のレコードは無視して計算されてしまいますが、どうすれば回避できるでしょうか？
+
+## クイズ 2
+
+文字列を連結する CONCAT 関数の引数に NULL が含まれていた場合どうなるでしょうか？
+
+##
+
+DISTINCT と GROUP BY は両方とも重複を排除することができますが、何が違うのか説明してください。
