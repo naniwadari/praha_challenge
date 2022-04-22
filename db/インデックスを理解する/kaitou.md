@@ -191,4 +191,8 @@ B,C => NG
 pager cat >/dev/null;
 -- 結果表示を戻す
 nopager;
+-- キャッシュ関連の設定確認
+show variables like '%cache%';
+-- セッション限りで一時的にキャッシュの無効化
+set query_cache_type=0
 ```
